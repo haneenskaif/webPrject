@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        .calculator {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #00f;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.display {
+    width: 95%;
+    height: 50px;
+    font-size: 24px;
+    text-align: right;
+    border: none;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0000ff‎;
+}
+    </style>
+</head>
+<body>
+     
+<h1 align="center"><i>Welcome to the calculator</i></h1>
+    <div class="calculator">
+        <input type="text" class="display" id="result" readonly>
+        <div class="buttons">
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="clearScreen()">C</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="display('+')">+</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+function display(value) {
+  document.getElementById("result").value += value;
+}
+
+function clearScreen() {
+  document.getElementById("result").value = "";
+}
+
+function calculate() {
+  var expression = document.getElementById("result").value;
+  try {
+    var result = eval(expression);
+    document.getElementById("result").value = result;
+  } catch(err) {
+    document.getElementById("result").value = "Error";
+  }
+}
+</script>
